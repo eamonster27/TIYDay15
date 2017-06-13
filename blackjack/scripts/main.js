@@ -9,30 +9,36 @@
    write your logic.
 */
 
-
 function handValue (hand) {
   let aceCount = 0;
   let sum = 0;
 
   for(let i = 0; i < hand.length; ++i){
-    if(hand[i] == "A"){
-      ++aceCount;
-      sum = sum + 11;
-    }
-    else if(hand[i] == "K"){
-      sum = sum + 10;
-    }
-    else if(hand[i] == "Q"){
-      sum = sum + 10;
-    }
-    else if(hand[i] == "J"){
-      sum = sum + 10;
-    }
-    else{
-      sum = sum + (hand[i] * 1);
+    switch(hand[i]) {
+      case "A":
+        ++aceCount;
+        sum = sum + 11;
+        break;
+      case "K":
+      case "Q":
+      case "J":
+        sum = sum + 10;
+        break;
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+      case "9":
+        sum = sum + (hand[i] * 1);
+        break;
+      default:
+        console.log("Incorrect input.")
+        break;
     }
   }
-
   while(aceCount > 0 && sum > 21){
     sum = sum - 10;
     --aceCount;
@@ -40,8 +46,6 @@ function handValue (hand) {
 
   return sum;
 }
-
-console.log(handValue(["2", "2", "8"]));
 
 
 /* -----  Hints ------
