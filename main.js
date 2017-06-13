@@ -1,18 +1,20 @@
 let numbers = [4,5,1,8,9,2];
 var swapStatus = false;
-console.log(bubbleSort(numbers));
+console.log(numbers);
+bubbleSort();
 
-function bubbleSort(list) {
-  for(var i = 0; i < list.length - 1; ++i){
-    if(list[i] > list[i+1]){
+function bubbleSort() {
+  for(var i = 0; i < numbers.length - 1; ++i){
+    if(numbers[i] > numbers[i+1]){
       swap(i,i+1);
+      console.log(numbers);
     }
   }
   if(swapStatus === true){
     swapStatus = false;
-    bubbleSort(list);
+    bubbleSort(numbers);
   }
-  return list;
+  return;
 }
 
 function swap(leftIndex, rightIndex){
