@@ -15,15 +15,6 @@ function handValue (hand) {
 
   for(let i = 0; i < hand.length; ++i){
     switch(hand[i]) {
-      case "A":
-        ++aceCount;
-        sum = sum + 11;
-        break;
-      case "K":
-      case "Q":
-      case "J":
-        sum = sum + 10;
-        break;
       case "2":
       case "3":
       case "4":
@@ -33,6 +24,15 @@ function handValue (hand) {
       case "8":
       case "9":
         sum = sum + (hand[i] * 1);
+        break;
+      case "K":
+      case "Q":
+      case "J":
+        sum = sum + 10;
+        break;
+      case "A":
+        ++aceCount;
+        sum = sum + 11;
         break;
       default:
         console.log("Incorrect input.")
